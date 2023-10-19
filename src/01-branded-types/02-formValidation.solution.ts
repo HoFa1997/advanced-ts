@@ -13,8 +13,8 @@ export const validateValues = (values: { email: string; password: string }) => {
   }
 
   return {
-    email: values.email,
-    password: values.password,
+    email: values.email as Email,
+    password: values.password as Password,
   };
 };
 
@@ -24,7 +24,6 @@ const createUserOnApi = (values: { email: Email; password: Password }) => {
 
 const onSubmitHandler = (values: { email: string; password: string }) => {
   const validatedValues = validateValues(values);
-  // How do we stop this erroring?
   createUserOnApi(validatedValues);
 };
 
